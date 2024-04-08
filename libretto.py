@@ -24,8 +24,8 @@ class Voto:
         return f"Voto('{self.esame}', {self.cfu}, {self.punteggio}, {self.lode}, '{self.data}')"
 """
 
-@dataclass
-class Voto:
+@dataclass #questo modo di creare una classe permette di aggiungere
+class Voto: #automaticamente __init__, __repr__ e altri metodi
     esame: str
     cfu: int
     punteggio: int
@@ -35,13 +35,14 @@ class Voto:
 
 class Libretto:
     def __init__(self):
-        self._voti = []
+        self._voti = [] #con '_' sto dicendo che chi vuole usare la classe libretto
+                        #non utilizzi direttamente la variabile voti
 
     def append(self, voto):
         self._voti.append(voto)
 
     def media(self):
-        if len(self._voti)==0:
+        if len(self._voti) == 0:
             raise ValueError("Elenco voti vuoto")
         punteggi = [v.punteggio for v in self._voti]
         return sum(punteggi)/len(punteggi)
@@ -54,7 +55,7 @@ class Libretto:
 voto_1 = Voto("Analisi Matematica 1", 10, 28, False, '2022-02-10')
 voto_2 = Voto("Basi di Dati", 8, 30, True, '2023-06-15')
 
-print(voto_1, voto_2)
+#print(voto_1, voto_2)
 #
 # miei_voti = [voto_1, voto_2]
 # print(miei_voti)
@@ -62,8 +63,9 @@ print(voto_1, voto_2)
 mio_libretto = Libretto()
 mio_libretto.append(voto_1)
 mio_libretto.append(voto_2)
-# mio_libretto._voti.append(voto_1)  NO
+# mio_libretto._voti.append(voto_1)  NO: non modifico direttamente la variabile voti
+#                                        ma lo lascio fare al metodo append
 
 print(mio_libretto.media())
 
-# print(mio_libretto._voti)  NO
+#print(mio_libretto._voti) NO
