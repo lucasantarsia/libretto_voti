@@ -1,5 +1,5 @@
 """
-Scrivere un programma Python che permetta di gestire un libretto universitario.
+Scrivere un programma Python che permetta di gestire un modello universitario.
 Il programma dovrà definire una classe Voto, che rappresenta un singolo esame superato,
 ed una classe Libretto, che contiene l'elenco dei voti di uno studente.
 """
@@ -35,7 +35,7 @@ class Voto: #automaticamente __init__, __repr__ e altri metodi
 
 class Libretto:
     def __init__(self):
-        self._voti = [] #con '_' sto dicendo che chi vuole usare la classe libretto
+        self._voti = [] #con '_' sto dicendo che chi vuole usare la classe modello
                         #non utilizzi direttamente la variabile voti
 
     def append(self, voto):
